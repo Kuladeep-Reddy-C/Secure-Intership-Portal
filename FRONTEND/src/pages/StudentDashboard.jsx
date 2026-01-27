@@ -19,7 +19,9 @@ const StudentDashboard = () => {
   const [offers, setOffers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
-  const { user, getPrivateKey } = useAuth();
+  const { user } = useAuth();
+  const [restoreKey, setRestoreKey] = useState('');
+
 
   useEffect(() => {
     fetchOffers();
@@ -46,7 +48,8 @@ const StudentDashboard = () => {
     return badges[status] || 'status-pending';
   };
 
-  const hasPrivateKey = !!getPrivateKey();
+  const privateKey = localStorage.getItem('privateKey');
+  const hasPrivateKey = !!privateKey;
 
   if (loading) {
     return (

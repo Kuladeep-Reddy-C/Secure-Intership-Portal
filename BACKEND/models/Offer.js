@@ -222,7 +222,7 @@ const offerSchema = new mongoose.Schema({
      * - Track acceptance in audit log
      */
     acceptanceToken: {
-        type: String,
+        type: String,   
         unique: true,
         sparse: true
     },
